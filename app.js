@@ -61,17 +61,18 @@ const umbrella = Bodies.rectangle(width/2,height/2,30,30,{
 })
 
 // World.add(world,umbrella)
-//generate and check for collision 
+// generate and check for collision 
 setInterval(() => {
     generateRainDrops()
     Events.on(engine, 'collisionStart', e => {
+        console.log(e)
         e.forEach(collision => {
             World.remove(world, raindrop)
         })
     })
 }, 100)
 
-window.addEventListener('load',()=>{
+window.addEventListener('focus',()=>{
     music.play()
     ambience.play()
 })
